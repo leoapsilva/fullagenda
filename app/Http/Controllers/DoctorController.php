@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    //
+    
+    public function index()
+    {
+        $doctor = Doctor::latest()->get();
+
+        return view('doctors.index', ['doctor' => $doctor]);
+    }
+
     public function show($id)
     {
         $doctor = Doctor::find($id);
