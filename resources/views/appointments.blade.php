@@ -462,18 +462,4 @@
 @endsection
 
 @section('extra_js')
-    <script>
-        window.onload = function() {
-        var element = document.getElementById("appointments");
-        element.classList.add("active");
-        };
-	</script>
-
-	<script>
-		$(document).ready(function() {
-			$("h1#breadcumb").text("Agendamentos");
-			$("li#breadcumb").text("Agendamentos");
-		});
-	</script>
-	
 @endsection
