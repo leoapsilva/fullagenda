@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;   
+use App\Http\Controllers\DoctorController;   
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 */
-
 Route::get('/posts/{post}', [PostsController::class, 'show']);
 
 Route::get('/dashboard', function(){
@@ -30,13 +30,27 @@ Route::get('/dashboard', function(){
 });
 
 Route::get('/appointments', function(){
-    return view('appointments');
+    return view('appointments', [
+        'appointments' => \App\Models\Appointment::all(),
+    ]);
 });
 
-Route::get('/doctons', function(){
-    return view('doctors');
+Route::get('/doctors', function(){
+    return view('doctors', [
+        'doctors' => \App\Models\Doctor::all(),
+    ]);
+});
+
+Route::get('/doctors/{doctor}', [DoctorController::class, 'show']);
+
+Route::get('/patients', function(){
+    return view('patients', [
+        'patients' => \App\Models\Patient::all(),
+    ]);
 });
 
 Route::get('/users', function(){
-    return view('users');
+    return view('users', [
+        'users' => \App\Models\User::all(),
+    ]);
 });
