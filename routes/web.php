@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;   
-use App\Http\Controllers\DoctorController;   
+use App\Http\Controllers\DoctorController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +41,20 @@ Route::get('/doctors', function(){
     ]);
 });
 
-Route::get('/doctors/{doctor}', [DoctorController::class, 'show']);
+//Route::get('/doctors/{doctor}', [DoctorController::class, 'show']);
+
+Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
+
+Route::get('/doctors', [DoctorController::class, 'create'])->name('doctors.create');
 
 Route::get('/patients', function(){
     return view('patients', [
         'patients' => \App\Models\Patient::all(),
     ]);
 });
+
+Route::get('/patients', [App\Http\Controllers\PatientController::class, 'index'])->name('patients.index');
+
 
 Route::get('/users', function(){
     return view('users', [
