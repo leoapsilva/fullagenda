@@ -5,7 +5,7 @@
 			<div class="col-md-6">
 				<div class="panel panel-default articles">
 					<div class="panel-heading">
-						Latest News
+						Confirmar
 						<ul class="pull-right panel-settings panel-button-tab-right">
 							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
 								<em class="fa fa-cogs"></em>

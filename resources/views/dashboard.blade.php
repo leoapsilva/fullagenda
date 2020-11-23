@@ -350,8 +350,12 @@
 @endsection
 
 @section('extra_js')
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart-data.js"></script>
+    <script src="js/easypiechart.js"></script>
+    <script src="js/easypiechart-data.js"></script>
     <script>
-        window.onload = function () {
+            window.onload = function () {
             var chart1 = document.getElementById("line-chart").getContext("2d");
             window.myLine = new Chart(chart1).Line(lineChartData, {
                 responsive: true,
