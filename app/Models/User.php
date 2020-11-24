@@ -54,4 +54,9 @@ class User extends Authenticatable
                 ->orWhere('email', 'like', '%'.$query.'%');
     }
 
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
 }

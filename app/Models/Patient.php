@@ -27,4 +27,9 @@ class Patient extends Model
             : static::where('name', 'like', '%'.$query.'%')
                 ->orWhere('lastname', 'like', '%'.$query.'%');
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }
