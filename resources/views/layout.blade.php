@@ -1,4 +1,3 @@
-{{-- @if (session('status')) --}}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -78,12 +77,6 @@
             </ol>
         </div><!--/.row-->
         
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 id ="breadcumb" class="page-header"> {{ __("navbar.".$nav) }} </h1>
-            </div>
-        </div><!--/.row-->
-
 
         @yield('content')
 
@@ -95,10 +88,10 @@
         </div><!--/.row-->
     </div>	<!--/.main-->
 
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/custom.js"></script>
 
     @yield('extra_js')
 
@@ -106,8 +99,3 @@
 
 <body>
 </html>
-{{-- @else
-
-<script>  window.location = "/home"; </script>
-    
-@endif --}}
