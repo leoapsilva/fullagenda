@@ -27,24 +27,11 @@ class PatientsTable extends Component
 
     public function render()
     {
-
-/*         
-        return view('livewire.patients-table', [
-            'patients' => \App\Models\Patient::search( 
-                $this->search
-                )->get(),
-        ]);
-
- */
-
         return view('livewire.patients-table', [
             'patients' => \App\Models\Patient::search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
         ]);
-
-
-//        return view('livewire.patients-table');
     }
 
 }

@@ -12,7 +12,15 @@ class Patient extends Model
     protected $guarded = [];
 
     protected $casts = ['birthday' => 'date'];
-    
+
+    protected $fillable = [
+        'name',
+        'lastname',
+        'mobile',
+        'birthday',
+        'health_insurance_plan',
+    ];
+
     public static function search($query)
     {
         return empty($query) ? static::query()
