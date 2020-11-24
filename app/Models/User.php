@@ -40,4 +40,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Serarch method used by Livewire.
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('name', 'like', '%'.$query.'%')
+                ->orWhere('email', 'like', '%'.$query.'%');
+    }
+
 }
