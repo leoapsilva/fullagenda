@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController; 
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,42 @@ Route::get('/dashboard', function(){
 
 // Appointments Routes
 
-Route::get('/appointments', function(){
-    return view('appointments', [
-        'appointments' => \App\Models\Appointment::all(),
-    ]);
-});
+Route::get('/appointments/pacient', [AppointmentController::class, 'pacient'])
+    ->name('appointments.pacient')
+    ->middleware('auth');
+
+Route::get('/appointments/create', [AppointmentController::class, 'create'])
+    ->name('appointments.create')
+    ->middleware('auth');
+
+Route::get('/appointments', [AppointmentController::class, 'index'])
+    ->name('appointments.index')
+    ->middleware('auth');
+
+Route::post('/appointments', [AppointmentController::class, 'store'])
+    ->name('appointments.store')
+    ->middleware('auth');
+
+Route::put('/appointments/{appointment}', [AppointmentController::class, 'update'])
+    ->name('appointments.update')
+    ->middleware('auth');
+
+Route::get('/appointments/{appointment}', [AppointmentController::class, 'show'])
+    ->name('appointments.show')
+    ->middleware('auth');
+
+Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy'])
+    ->name('appointments.destroy')
+    ->middleware('auth');
+
+Route::get('/appointments/{appointment}/edit', [AppointmentController::class, 'edit'])
+    ->name('appointments.edit')
+    ->middleware('auth');
+
+Route::get('/appointments/{appointment}/delete', [AppointmentController::class, 'delete'])
+    ->name('appointments.delete')
+    ->middleware('auth');
+
 
 // Doctors Routes
 
