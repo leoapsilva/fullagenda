@@ -15,13 +15,15 @@
                 </div>
                 <div class="panel-body">
 
-                    <form class="form-horizontal" action="/doctors" method="GET">
+                    <form class="form-horizontal" action="/doctors/{{ $doctor->id}}" method="POST">
+                        @csrf
+                        @method('PUT')
                         <fieldset>
                             <!-- Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"> {{ __('doctors.name') }} </label>
                                 <div class="col-md-9">
-                                    <input disabled id="name" name="name" type="text" placeholder="" class="form-control" value="{{ $doctor->name }}">
+                                    <input id="name" name="name" type="text" placeholder="" class="form-control" value="{{ $doctor->name }}" >
                                 </div>
                             </div>
                         
@@ -29,7 +31,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="lastname">{{ __('doctors.lastname') }} </label>
                                 <div class="col-md-9">
-                                    <input disabled id="lastname" name="lastname" type="text" placeholder="" class="form-control" value="{{ $doctor->lastname }}">
+                                    <input id="lastname" name="lastname" type="text" placeholder="" class="form-control" value="{{ $doctor->lastname }}">
                                 </div>
                             </div>
                             
@@ -37,7 +39,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="mobile">{{ __('doctors.mobile') }} </label>
                                 <div class="col-md-9">
-                                    <input disabled type="tel" id="mobile" name="mobile" class="form-control" placeholder="" value="{{ $doctor->mobile }}" >
+                                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="" value="{{ $doctor->mobile }}" >
                                 </div>
                             </div>
 
@@ -45,16 +47,22 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="specialty">{{ __('doctors.specialty') }} </label>
                                 <div class="col-md-9">
-                                    <input disabled id="specialty" name="specialty" type="text" placeholder="" class="form-control" value="{{ $doctor->specialty }}">
+                                    <input id="specialty" name="specialty" type="text" placeholder="" class="form-control" value="{{ $doctor->specialty }}">
                                 </div>
                             </div>
                             
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 widget-right">
-                                    <button type="submit" class="btn btn-warning btn-md pull-right">Voltar</button>
+
+                                    <div class="col-md-10 widget-left">
+                                    </div>
+                                    <div class="col-md-1 widget-right">
+                                        <button type="button" class="btn btn-warning btn-md pull-left" onclick="location.href='/doctors'">Voltar</button>
+                                    </div>
+                                        <button type="submit" class="btn btn-success btn-md pull-right">Enviar</button>
+                                    </div>
                                 </div>
-                            </div>
                         </fieldset>
                     </form>
 

@@ -4,60 +4,69 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
-use App\DataTables\DoctorDataTable;
 
 class DoctorController extends Controller
 {
     
-    public function index(DoctorDataTable $dataTable)
+    protected function validateDoctor()
     {
-        return $dataTable->render('doctors.index');
+        return request()->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'mobile' => 'required',
+            'specialty' => 'required',
+        ]);
     }
-
-/* 
     public function index()
     {
-        $doctor = Doctor::latest()->get();
-
-        return view('doctors.index', ['doctor' => $doctor]);
+        return view('doctors.index');
     }
-
-*/
-    public function show($id)
-    {
-        $doctor = Doctor::find($id);
-
-        return view('doctors.show', ['doctor' => $doctor]);
-    }
-
-    public function store(Request $request)
-    {
-        $doctor = Doctor::find($id);
-
-        return view('doctors.show', ['doctor' => $doctor]);
-    }
-
 
     public function create()
     {
-
+        return view('doctors.create');
     }
 
-    public function destroy()
+    public function store()
     {
-        
+        Doctor::create($this->validateDoctor());
+
+        return redirect('/doctors');
     }
 
-    public function edit()
+    public function edit(Doctor $doctor)
     {
-        
+        return view('doctors.edit', [
+            'doctor' => $doctor,
+        ]);
     }
 
-    public function update()
+    public function show(Doctor $doctor)
     {
-        
+        return view('doctors.show', [
+            'doctor' => $doctor,
+        ]);
     }
 
+    public function update(Doctor $doctor)
+    {
+        $doctor->update($this->validateDoctor());
+        
+        return redirect('/doctors');
+    }
 
+    public function delete(Doctor $doctor)
+    {
+        return view('doctors.delete', [
+            'doctor' => $doctor,
+        ]);
+    }
+
+    public function destroy(Doctor $doctor)
+    {
+        $doctor->delete();
+        
+        return redirect('/doctors');
+    }
 
 }

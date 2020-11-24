@@ -15,7 +15,9 @@
                 </div>
                 <div class="panel-body">
 
-                    <form class="form-horizontal" action="/doctors" method="GET">
+                    <form class="form-horizontal" action="/doctors/{{ $doctor->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
                         <fieldset>
                             <!-- Name input-->
                             <div class="form-group">
@@ -52,7 +54,12 @@
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 widget-right">
-                                    <button type="submit" class="btn btn-warning btn-md pull-right">Voltar</button>
+                                    <div class="col-md-9 widget-left">
+                                    </div>
+                                    <div class="col-md-1 widget-right">
+                                        <button type="button" class="btn btn-warning btn-md pull-left" onclick="location.href='/doctors'">Voltar</button>
+                                    </div>
+                                        <button type="submit" class="btn btn-danger btn-md pull-right">Confirmar</button>
                                 </div>
                             </div>
                         </fieldset>
