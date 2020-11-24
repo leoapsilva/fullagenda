@@ -4,15 +4,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                {{ __("navbar.".Request::path()) }}
-                    <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-                </div>
-                <div class="panel-body">
-                    @livewire('users-table')
-                </div>
-            </div>
+            @livewire('users-table')
         </div>
     </div><!--/.row-->
 @endsection

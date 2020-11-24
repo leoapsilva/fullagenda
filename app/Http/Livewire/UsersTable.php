@@ -3,12 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class UsersTable extends Component
 {
-    use WithPagination;
-
     public $perPage = 5;
     public $sortField = 'name';
     public $sortAsc = true;

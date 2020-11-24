@@ -3,12 +3,10 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 use App\Models\Doctor;
 
 class DoctorsTable extends Component
 {
-    use WithPagination;
 
     public $perPage = 5;
     public $sortField = 'name';
