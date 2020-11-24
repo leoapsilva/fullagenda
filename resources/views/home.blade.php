@@ -12,15 +12,15 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                        @endif
+                        <div class="row justify-content-center">
+                            {{ __('You are logged in!') }}
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="button" onclick="window.location = '/dashboard'" class="btn btn-lg btn-primary">{{ __('Enter') }} </button>
+                        </div>
                 </div>
-                    <br>
 
-                    <button type="button" onclick="Enter()" class="btn btn-lg btn-primary">{{ __('Enter') }} </button>
-
-                    <script> function Enter(){ window.location = "/dashboard";} </script>
                 </div>
         </div>
     </div>
