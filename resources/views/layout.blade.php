@@ -2,9 +2,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8">
+    @php
+        $nav = explode("/", Request::path())[0];
+    @endphp 
+
+    <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FullAgenda - {{ __("navbar.".Request::path()) }}</title>
+	<title>FullAgenda - {{ __("navbar.".$nav)  }}</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/css/datepicker3.css" rel="stylesheet">
@@ -48,11 +52,11 @@
         </div>
 
         <ul class="nav menu">
-            <li class="{{ Request::path() == 'dashboard' ? 'active' : '' }}" id="dashboard"><a href="/dashboard"><em class="fa fa-dashboard">&nbsp;</em> {{ __("navbar.dashboard") }} </a></li>
-            <li class="{{ Request::path() == 'appointments' ? 'active' : '' }}" id="appointments"><a href="/appointments"><em class="fa fa-calendar">&nbsp;</em> {{ __("navbar.appointments") }} </a></li>
-            <li class="{{ Request::path() == 'doctors' ? 'active' : '' }}" id="doctors"><a href="/doctors"><em class="fa fa-stethoscope">&nbsp;</em> {{ __("navbar.doctors") }} </a></li>
-            <li class="{{ Request::path() == 'patients' ? 'active' : '' }}"id="patients"><a href="/patients"><em class="fa fa-heartbeat">&nbsp;</em> {{ __("navbar.patients") }} </a></li>
-            <li class="{{ Request::path() == 'users' ? 'active' : '' }}"id="users"><a href="/users"><em class="fa fa-users">&nbsp;</em> {{ __("navbar.users") }} </a></li>
+            <li class="{{ str_contains(Request::path(), 'dashboard') ? 'active' : '' }}" id="dashboard"><a href="/dashboard"><em class="fa fa-dashboard">&nbsp;</em> {{ __("navbar.dashboard") }} </a></li>
+            <li class="{{ str_contains(Request::path(), 'appointments') ? 'active' : '' }}" id="appointments"><a href="/appointments"><em class="fa fa-calendar">&nbsp;</em> {{ __("navbar.appointments") }} </a></li>
+            <li class="{{ str_contains(Request::path(), 'doctors') ? 'active' : '' }}" id="doctors"><a href="/doctors"><em class="fa fa-stethoscope">&nbsp;</em> {{ __("navbar.doctors") }} </a></li>
+            <li class="{{ str_contains(Request::path(), 'patients') ? 'active' : '' }}"id="patients"><a href="/patients"><em class="fa fa-heartbeat">&nbsp;</em> {{ __("navbar.patients") }} </a></li>
+            <li class="{{ str_contains(Request::path(), 'users') ? 'active' : '' }}"id="users"><a href="/users"><em class="fa fa-users">&nbsp;</em> {{ __("navbar.users") }} </a></li>
             <li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
@@ -70,13 +74,13 @@
                 <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-                <li id ="breadcumb" class="active"> {{ __("navbar.".Request::path()) }} </li> 
+                <li id ="breadcumb" class="active"> {{ __("navbar.".$nav) }} </li> 
             </ol>
         </div><!--/.row-->
         
         <div class="row">
             <div class="col-lg-12">
-                <h1 id ="breadcumb" class="page-header"> {{ __("navbar.".Request::path()) }} </h1>
+                <h1 id ="breadcumb" class="page-header"> {{ __("navbar.".$nav) }} </h1>
             </div>
         </div><!--/.row-->
 
