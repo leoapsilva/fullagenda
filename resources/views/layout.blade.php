@@ -51,7 +51,7 @@
         </div>
 
         <ul class="nav menu">
-            <li class="{{ str_contains(Request::path(), 'dashboard') ? 'active' : '' }}" id="dashboard"><a href="/dashboard"><em class="fa fa-dashboard">&nbsp;</em> {{ __("navbar.dashboard") }} </a></li>
+            {{-- <li class="{{ str_contains(Request::path(), 'dashboard') ? 'active' : '' }}" id="dashboard"><a href="/dashboard"><em class="fa fa-dashboard">&nbsp;</em> {{ __("navbar.dashboard") }} </a></li> --}}
             <li class="{{ str_contains(Request::path(), 'appointments') ? 'active' : '' }}" id="appointments"><a href="/appointments"><em class="fa fa-calendar">&nbsp;</em> {{ __("navbar.appointments") }} </a></li>
             <li class="{{ str_contains(Request::path(), 'doctors') ? 'active' : '' }}" id="doctors"><a href="/doctors"><em class="fa fa-stethoscope">&nbsp;</em> {{ __("navbar.doctors") }} </a></li>
             <li class="{{ str_contains(Request::path(), 'patients') ? 'active' : '' }}"id="patients"><a href="/patients"><em class="fa fa-heartbeat">&nbsp;</em> {{ __("navbar.patients") }} </a></li>
