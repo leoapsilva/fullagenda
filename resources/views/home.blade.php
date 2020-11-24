@@ -17,7 +17,7 @@
                             {{ __('You are logged in!') }}
                         </div>
                         <div class="row justify-content-center">
-                            <button type="button" onclick="window.location = '/dashboard'" class="btn btn-lg btn-primary">{{ __('Enter') }} </button>
+                            <button type="button" onclick="window.location = '/appointments/create'" class="btn btn-lg btn-primary">{{ __('Enter') }} </button>
                         </div>
                 </div>
 
