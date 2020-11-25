@@ -84,7 +84,7 @@
 
             <div class="row mb-4">
                 <div class="col text-center">
-                    {{ $appointments->links() }}
+                    {{ $appointments->links('pagination') }}
                 </div>
             </div>
         </div>

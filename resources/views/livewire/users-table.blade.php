@@ -63,7 +63,7 @@
             </div>
             <div class="row mb-4">
                 <div class="col text-center">
-                    {{ $users->links() }}
+                    {{ $users->links('pagination') }}
                 </div>
             </div>
         </div>
