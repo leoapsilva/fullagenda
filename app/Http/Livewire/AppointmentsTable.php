@@ -3,9 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AppointmentsTable extends Component
 {
+    use WithPagination;
+    
     public $perPage = 5;
     public $sortField = 'appointed_to';
     public $sortAsc = true;
