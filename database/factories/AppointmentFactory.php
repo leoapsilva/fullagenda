@@ -26,7 +26,7 @@ class AppointmentFactory extends Factory
     {
         return [
             //
-            'appointed_to' => $this->faker->dateTimeBetween('1 month', '4 months'), 
+            'appointed_to' => $this->faker->dateTimeBetween('15 days', '4 months'), 
             'patient_id' => $this->faker->randomElement(DB::table('patients')->select('id')->get())->id,
             'doctor_id' => $this->faker->randomElement(DB::table('doctors')->select('id')->get())->id,
             'user_id' => $this->faker->randomElement(DB::table('users')->select('id')->get())->id,
