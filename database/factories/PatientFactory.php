@@ -23,7 +23,7 @@ class PatientFactory extends Factory
     {
         return [
             'name' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
+            'lastname' => $this->faker->lastName. ' '.$this->faker->lastName,
             'mobile' => $this->faker->phoneNumber,
             'health_insurance_plan' => $this->faker->randomElement(['Unimed', 'Austa', 'HB Saúde', 'Bensaúde', 'Bradesco Saúde']),
             'birthday'=> $this->faker->dateTimeBetween('-70 years', '-10 years')->format('Y-m-d'),
