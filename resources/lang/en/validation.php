@@ -147,6 +147,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'appointed_to' => 'appointment',
+    ],
 
 ];
