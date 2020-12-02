@@ -12,7 +12,7 @@ class PatientController extends Controller
         return request()->validate([
             'name' => 'required',
             'lastname' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|size:15|regex:/\(?\d{2}\)?\s?9\d{4}\-?\d{4}/',
             'birthday' => 'required',
             'health_insurance_plan' => 'required'
         ]);

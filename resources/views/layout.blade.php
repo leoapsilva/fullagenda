@@ -92,10 +92,16 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
     <script src="/js/custom.js"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
 
     @yield('extra_js')
 
     @livewireScripts
 
-<body>
+    <script>
+        $(document).ready(function($){
+            $('.phone').mask("(99) 99999-9999");
+        });
+    </script>
+</body>
 </html>

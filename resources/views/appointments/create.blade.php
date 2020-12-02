@@ -60,6 +60,9 @@
                                             <div class="panel-body">
                                                 @include('appointments.appointed-datetime')
                                             </div>
+                                            {{-- @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach --}}
                                         </div>
                                     </div>
                                 {{-- </div> --}}
