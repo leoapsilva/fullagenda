@@ -27,9 +27,12 @@ class Appointment extends Model
     public static function search($query)
     {
         return empty($query) ? static::query()
-            : static::where('doctor', 'like', '%'.$query.'%')
-                ->orWhere('patient', 'like', '%'.$query.'%')
-                ->orWhere('user', 'like', '%'.$query.'%');
+        :   static::join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
+                ->orwhere('doctors.name', 'like', '%'.$query.'%')
+                ->orWhere('doctors.lastname', 'like', '%'.$query.'%')
+                ->join('patients', 'appointments.patient_id', '=', 'patients.id')
+                ->orwhere('patients.name', 'like', '%'.$query.'%')
+                ->orWhere('patients.lastname', 'like', '%'.$query.'%');
     }
 
     public function user()
