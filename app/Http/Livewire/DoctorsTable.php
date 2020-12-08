@@ -9,7 +9,7 @@ use App\Models\Doctor;
 class DoctorsTable extends Component
 {
     use WithPagination;
-    
+
     public $perPage = 5;
     public $sortField = 'name';
     public $sortAsc = true;

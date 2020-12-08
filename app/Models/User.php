@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Serarch method used by Livewire.
+     * Search method used by Livewire.
      *
      * @param [type] $query
      * @return void

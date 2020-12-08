@@ -2,10 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use Livewire\WithPagination;
 use Livewire\Component;
+use \App\Models\User;
 
 class UsersTable extends Component
 {
+    use WithPagination;
+
     public $perPage = 5;
     public $sortField = 'name';
     public $sortAsc = true;
@@ -25,7 +29,7 @@ class UsersTable extends Component
     public function render()
     {
         return view('livewire.users-table', [
-            'users' => \App\Models\User::search($this->search)
+            'users' => User::search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
         ]);
