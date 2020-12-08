@@ -18,10 +18,10 @@ class AppointmentController extends Controller
                                                             ->where('doctor_id', request('doctor_id'))
                                                             ->where('patient_id', request('patient_id'))
                              ],
+            'patient_id'=> 'required',
+            'doctor_id'=> 'required',
             'user_id'=> 'required',
-            'appointed_to' => 'required',
         ]);
-
     }
 
     protected function validateAppointment()
@@ -34,7 +34,6 @@ class AppointmentController extends Controller
             'patient_id'=> 'required',
             'doctor_id'=> 'required',
             'user_id'=> 'required',
-            'appointed_to' => 'required',
         ]);
     }
 

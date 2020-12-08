@@ -30,6 +30,29 @@
                                             <div class="panel-body text-center">
                                                 {{ $appointment->doctor->name }} {{ $appointment->doctor->lastname }}
                                             </div>
+                                            <div class="panel-body text-center">
+                                                {{ $appointment->doctor->specialty }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{-- </div> --}}
+
+                                <!-- Appointed To input-->
+                                {{-- <div class="form-group"> --}}
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading text-center">
+                                                Agendado
+                                            </div>
+                                            <div class="panel-body text-center">
+                                                {{ Carbon\Carbon::parse($appointment->appointed_to)->format("d/m/Y H:i") }} 
+                                            </div>
+                                            <div class="panel-heading text-center">
+                                                Alterar para
+                                            </div>
+                                            <div class="panel-body">
+                                                @include('appointments.appointed-datetime')
+                                            </div>
                                         </div>
                                     </div>
                                 {{-- </div> --}}
@@ -44,23 +67,16 @@
                                             <div class="panel-body text-center">
                                                 {{ $appointment->patient->name }} {{  $appointment->patient->lastname }}
                                             </div>
+                                            <div class="panel-body text-center">
+                                                {{ $appointment->patient->mobile }}
+                                            </div>
+                                            <div class="panel-body text-center">
+                                                {{ $appointment->patient->health_insurance_plan }}
+                                            </div>
                                         </div>
                                     </div>
                                 {{-- </div> --}}
 
-                                <!-- Appointed To input-->
-                                {{-- <div class="form-group"> --}}
-                                    <div class="col-md-4">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading text-center">
-                                                Agendar para
-                                            </div>
-                                            <div class="panel-body">
-                                                @include('appointments.appointed-datetime')
-                                            </div>
-                                        </div>
-                                    </div>
-                                {{-- </div> --}}
                             </div><!--/.row-->
                             
                             <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id}}">
