@@ -38,7 +38,10 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="mobile">{{ __('patients.mobile') }} </label>
                                 <div class="col-md-9 {{ $errors->first('mobile') ? 'form-group has-error' : ''}}">
-                                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="" value="{{ old('mobile') }}">
+                                    <input type="tel" id="mobile" name="mobile" class="form-control phone" placeholder="" value="{{ old('mobile') }}">
+                                    @error('mobile')
+                                    <div class="alert alert-danger"> {{ __($message) }} </div>
+                                    @enderror
                                 </div>
                             </div>
 

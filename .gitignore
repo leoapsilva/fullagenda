@@ -10,3 +10,11 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+tests/API_cep_brasil.txt
+tests/ddd_brasil.txt
+tests/Geolocalização Google - divetohtml5.com.br.txt
+tests/Lista_Estados_Brasil_Versao_CSV.csv
+tests/Lista_Municípios_com_IBGE_Brasil_Versao_CSV.csv
+.gitignore
+tests/Lista_Municípios_com_IBGE_Brasil_Versao_CSV.csv
+tests/TERMO DE ATESTO - 2221_2018.pdf

@@ -39,7 +39,10 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="mobile">{{ __('doctors.mobile') }} </label>
                                 <div class="col-md-9">
-                                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="" value="{{ $doctor->mobile }}" >
+                                    <input type="tel" id="mobile" name="mobile" class="form-control phone" placeholder="" value="{{ old('mobile', $doctor->mobile) }}" >
+                                    @error('mobile')
+                                    <div class="alert alert-danger"> {{ __($message) }} </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -73,4 +76,11 @@
 @endsection
 
 @section('extra_js')
+<script>
+
+$(document).ready(function($){
+    $('.phone').mask("(99) 99999-9999");
+});
+
+</script>
 @endsection

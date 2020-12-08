@@ -14,7 +14,8 @@
                         </div>
                         @endif
                         <div class="row justify-content-center">
-                            {{ __('You are logged in!') }}
+                            {{ __('You are logged in') . ", " . Auth::user()->name }}
+                            
                         </div>
                         <div class="row justify-content-center">
                             <button type="button" onclick="window.location = '/appointments/create'" class="btn btn-lg btn-primary">{{ __('Enter') }} </button>
