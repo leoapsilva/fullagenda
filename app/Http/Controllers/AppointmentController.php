@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
-use App\Http\Controllers\PatientController;
+use Illuminate\Validation\Rule;
 
 class AppointmentController extends Controller
 {
@@ -13,7 +13,13 @@ class AppointmentController extends Controller
     protected function validateAppointmentUpdate()
     {
         return request()->validate([
-            'appointed_to'=> 'required',
+            'appointed_to'=> ['required',
+                                Rule::unique('appointments')->ignore(request('user_id'))
+                                                            ->where('doctor_id', request('doctor_id'))
+                                                            ->where('patient_id', request('patient_id'))
+                             ],
+            'patient_id'=> 'required',
+            'doctor_id'=> 'required',
             'user_id'=> 'required',
         ]);
     }
@@ -21,7 +27,10 @@ class AppointmentController extends Controller
     protected function validateAppointment()
     {
         return request()->validate([
-            'appointed_to'=> 'required',
+            'appointed_to'=> ['required',
+                                Rule::unique('appointments')->where('doctor_id', request('doctor_id'))
+                                                            ->where('patient_id', request('patient_id'))
+                             ],
             'patient_id'=> 'required',
             'doctor_id'=> 'required',
             'user_id'=> 'required',

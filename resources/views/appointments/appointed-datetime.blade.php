@@ -9,6 +9,11 @@
                             placeholder="" value="{{ !empty($appointment) ? Carbon\Carbon::parse($appointment->appointed_to)->format("Y-m-d\TH:i") : ''}}" size="10">
                     </div>
                 </div>
+                <div class="row text-center">
+                    @error('appointed_to')
+                    <div class="alert alert-danger">{{ __($message) }}</div>
+                    @enderror
+                </div>
             </div>
         </div>
     </div>
